@@ -41,18 +41,20 @@ const App = () => {
 
   return (
     <>
-      {grid.map((row, y) => (
-        <div className="cell-row" key={`row-${y}`}>
-          {row.map((cell, x) => (
-            <Cell
-              alive={cell}
-              onMouseEnter={() => handleMouseEnterCell([y, x])}
-              onClick={() => toggleCell([y, x])}
-              key={`cell-${y}-${x}`}
-            />
-          ))}
-        </div>
-      ))}
+      <div>
+        {grid.map((row, y) => (
+          <div className="cell-row" key={`row-${y}`}>
+            {row.map((cell, x) => (
+              <Cell
+                alive={cell}
+                onMouseEnter={() => handleMouseEnterCell([y, x])}
+                onClick={() => toggleCell([y, x])}
+                key={`cell-${y}-${x}`}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
       <div className="controls-row">
         <button onClick={() => setPaused((old) => !old)}>
           {paused ? "Play" : "Pause"}
