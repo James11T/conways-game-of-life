@@ -80,5 +80,5 @@ const generateGrid = (width: number, height: number): Grid =>
     .fill(undefined)
     .map(() => Array(width).fill(CellStateEnum.DEAD));
 
-export { getNextCellState, stepGrid, cloneGrid, generateGrid, CellStateEnum };
+export { stepGrid, cloneGrid, generateGrid };
 export type { Grid, Cell, Vector, CellState };

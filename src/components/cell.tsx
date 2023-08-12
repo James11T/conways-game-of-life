@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { CellState } from "../gol";
+import { CellState } from "../game";
 
 interface CellProps extends React.ComponentPropsWithoutRef<"div"> {
   alive: CellState;

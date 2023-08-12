@@ -6,7 +6,7 @@ import {
   generateGrid,
   stepGrid,
   CellState,
-} from "../gol";
+} from "../game";
 import useMouseDown from "../hooks/useMouseDown";
 import useInterval from "../hooks/useInterval";
 import Cell from "./cell";
