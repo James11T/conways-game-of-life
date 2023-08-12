@@ -6,39 +6,19 @@ import {
   generateGrid,
   stepGrid,
   CellState,
-} from "./gol";
-import clsx from "clsx";
-import useMouseDown from "./useMouseDown";
-import useInterval from "./useInterval";
+} from "../gol";
+import useMouseDown from "../hooks/useMouseDown";
+import useInterval from "../hooks/useInterval";
+import Cell from "./cell";
 
 const DEFAULT_INTERVAL = 200;
-
-interface CellProps extends React.ComponentPropsWithoutRef<"div"> {
-  alive: CellState;
-}
-
-const Cell = ({ alive, className, ...divProps }: CellProps) => {
-  return (
-    <div
-      className={clsx(
-        {
-          cell: true,
-          "cell--alive": alive,
-        },
-        className
-      )}
-      {...divProps}
-    ></div>
-  );
-};
-
 const DEFAULT_GRID = generateGrid(85, 40);
 
 const App = () => {
   const [grid, setGrid] = React.useState<Grid>(DEFAULT_GRID);
   const [paused, setPaused] = React.useState(false);
-  const [interval, setInterval] = React.useState(DEFAULT_INTERVAL);
   const [mode, setMode] = React.useState<"DRAW" | "ERASE">("DRAW");
+  const [interval, setInterval] = React.useState(DEFAULT_INTERVAL);
   const mouseDown = useMouseDown();
 
   const onTick = React.useCallback(() => {
